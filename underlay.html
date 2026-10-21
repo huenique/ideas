@@ -47,6 +47,13 @@ details summary::-webkit-details-marker{display:none}
 .btn:hover{translate:0 -2px;box-shadow:0 10px 24px rgba(14,23,38,.18)}
 .chip{transition:background .2s ease, border-color .2s ease}
 .chip:hover{background:#1B2740;border-color:#FDBA74}
+.rows>*>span:last-child{white-space:nowrap}
+@media (max-width: 640px){
+#audit{padding:56px 16px 72px!important}
+.cta-card{padding:36px 22px!important;gap:28px!important;border-radius:20px!important}
+.report{padding:24px!important}
+.report-total{font-size:36px!important}
+}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -77,9 +84,9 @@ Underlay
 </div>
 <div class="rise d4" style="font-size: 15px; color: #3B4658">No switching. No retraining your team. No new logins.</div>
 </div>
-<div class="float" style="flex: 1 1 340px; min-width: 0; background: #0E1726; color: #FFFFFF; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div class="float report" style="flex: 1 1 340px; min-width: 0; background: #0E1726; color: #FFFFFF; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
 <div style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #9FB0C7"><span class="live" aria-hidden="true"></span>Sample leak report</div>
-<div style="font-family: Archivo, sans-serif; font-size: 44px; font-weight: 800; letter-spacing: -0.02em">$16,000 / month</div>
+<div class="report-total" style="font-family: Archivo, sans-serif; font-size: 44px; font-weight: 800; letter-spacing: -0.02em">$16,000 / month</div>
 <div style="font-size: 15px; color: #C9D3E1">estimated revenue slipping through a 400 call a month plumbing company, at a $450 average ticket</div>
 <div class="rows" style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px">
 <div style="display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #2A3750; padding-top: 14px"><span>Missed calls with no text back</span><span style="font-weight: 600">84 / mo</span></div>
@@ -195,7 +202,7 @@ Underlay
 </section>
 
 <section id="audit" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 120px">
-<div class="reveal" style="background: #C2410C; color: #FFFFFF; border-radius: 24px; padding: 56px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
+<div class="reveal cta-card" style="background: #C2410C; color: #FFFFFF; border-radius: 24px; padding: 56px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em"><span class="line">Find out what "good enough"</span> <span class="line">is costing you.</span></h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.55">Free audit. Written estimate in a week. No obligation to change a thing.</p>
