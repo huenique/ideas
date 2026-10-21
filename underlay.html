@@ -49,13 +49,20 @@ details summary::-webkit-details-marker{display:none}
 .chip:hover{background:#1B2740;border-color:#FDBA74}
 .rows>*>span:last-child{white-space:nowrap}
 .short{display:none}
+.menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid #DDE3EA;border-radius:8px;background:#FFFFFF;color:#0E1726;cursor:pointer}
 @media (max-width: 640px){
-.site-header{gap:2px 14px!important;justify-content:flex-start!important;padding:16px 24px 8px!important}
+section[id]{scroll-margin-top:72px}
+.site-header{gap:0 10px!important;justify-content:flex-start!important;padding:14px 16px!important;position:sticky;top:0;z-index:10;background:#F4F6F8;box-shadow:0 1px 0 #DDE3EA}
 .site-header::after{content:"";order:1;flex-basis:100%}
 .site-nav{display:contents!important}
-.site-header>div:first-child{flex:1}
+.site-header>div:first-child{flex:1;min-width:0;font-size:22px!important}
 .site-nav .btn{order:1;white-space:nowrap;padding:10px 16px!important}
-.site-nav .navlink{order:2;font-size:14px;white-space:nowrap}
+.menu-btn{display:inline-flex;order:1}
+.site-nav .navlink{order:2;display:none;flex-basis:100%;padding:14px 4px;font-size:17px;border-top:1px solid #DDE3EA}
+.site-nav .navlink::after{display:none}
+.site-header.open .navlink{display:block}
+.site-header.open .navlink:first-of-type{margin-top:14px}
+.site-header.open .i-open,.site-header:not(.open) .i-close{display:none}
 .long{display:none}.short{display:inline!important}
 .hero{padding:32px 24px 64px!important;gap:40px!important}
 .pad{padding-top:64px!important;padding-bottom:64px!important}
@@ -63,6 +70,10 @@ details summary::-webkit-details-marker{display:none}
 .cta-card{padding:36px 22px!important;gap:28px!important;border-radius:20px!important}
 .report{padding:24px!important}
 .report-total{font-size:36px!important}
+}
+@media (max-width: 360px){
+.site-header>div:first-child{font-size:20px!important;gap:8px!important}
+.site-nav .btn{padding:10px 12px!important;font-size:14px}
 }
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
@@ -75,11 +86,12 @@ details summary::-webkit-details-marker{display:none}
 <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="16" width="24" height="8" rx="2" fill="#C2410C"></rect><rect x="2" y="4" width="24" height="8" rx="2" fill="none" stroke="#0E1726" stroke-width="2.5"></rect></svg>
 Underlay
 </div>
-<nav class="site-nav" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; font-size: 15px; font-weight: 500">
+<nav id="site-nav" class="site-nav" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; font-size: 15px; font-weight: 500">
 <a class="navlink" href="#how" style="color: #0E1726; text-decoration: none">How it works</a>
 <a class="navlink" href="#services" style="color: #0E1726; text-decoration: none">What we build</a>
 <a class="navlink" href="#pricing" style="color: #0E1726; text-decoration: none">Pricing</a>
 <a class="btn" href="#audit" style="background: #0E1726; color: #FFFFFF; text-decoration: none; padding: 12px 20px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center"><span class="long">Get the free leak audit</span><span class="short">Free audit</span></a>
+<button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path class="i-open" d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="i-close" d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
 </header>
 
@@ -235,5 +247,13 @@ Underlay
 </footer>
 
 </div>
+<script>
+(function(){
+  var header = document.querySelector('.site-header'), btn = header.querySelector('.menu-btn');
+  function set(open){ header.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); }
+  btn.addEventListener('click', function(){ set(!header.classList.contains('open')); });
+  header.querySelectorAll('.navlink').forEach(function(a){ a.addEventListener('click', function(){ set(false); }); });
+})();
+</script>
 </body>
 </html>
